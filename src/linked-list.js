@@ -95,16 +95,15 @@ class LinkedList {
     }
 
     reverse() {
-        var first = this._head,
-            last = this._tail;
+        var start = this._head;
+        var end = this._tail;
 
         for (var i = 0; i < Math.floor(this.length / 2); i++) {
-            var data = first.data;
-            first.data = last.data;
-            last.data = data;
-
-            first = first.next;
-            last = last.prev;
+            var data = start.data;
+            start.data = end.data;
+            end.data = data;
+            start = start.next;
+            end = end.prev;
         }
         return this;
     }
