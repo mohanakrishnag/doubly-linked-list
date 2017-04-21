@@ -32,7 +32,7 @@ class LinkedList {
         if (this.length == 0) {
             return null;
         }
-        return this._head.data;
+        return this._tail.data;
     }
 
     at(index) {
@@ -81,14 +81,10 @@ class LinkedList {
     }
 
     deleteAt(index) {
-        var position = 0;
-        var node;
+        var node = this._head;
+        var position = 1;
         while (position < index) {
-            if (position === 0) {
-                node = this._head;
-            } else {
-                node = node.next;
-            }
+            node = node.next;
             position++;
         }
         node.prev.next = node.next;
